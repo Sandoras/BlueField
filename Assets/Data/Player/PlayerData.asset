@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a28f848271e3a4b93a48b6bc240c9b75, type: 3}
+  m_Name: PlayerData
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerRunData
+  runMaxSpeed: 9.11
+  runAcceleration: 2.06
+  runAccelAmount: 11.306257
+  runDecceleration: 3.48
+  runDeccelAmount: 19.099892
+  accelInAir: 0.92
+  deccelInAir: 0.39
+  doConserveMomentum: 1
+  gravityScale: 6
+  JumpCutGravity: 4
+  jumpInputBufferTime: 0.3
+  jumpForce: 3
+  coyoteTime: 0.1
+  jumpHangTimeThreshold: 13.9
+  jumpHangAccelerationMult: 2
+  jumpHangTargetSpeedMult: 3.72
+  dashInputBufferTime: 0.5
+  dashSpeed: 11
+  dashTime: 2
+  dashAccel: 0.4
