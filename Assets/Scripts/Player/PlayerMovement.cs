@@ -113,24 +113,21 @@ public class PlayerMovement : MonoBehaviour
 
         if (CanDash() && LastPressedDashTime > 0)
         {
-            print("Can dash");
-            Vector2 dashDirection;
+            StartDash();
+        }
 
-            //IsDashing = true;
-
+        if (IsDashing)
+        {
             _dashTimeLeft -= Time.deltaTime;
+            print(_dashTimeLeft);
 
-            if (_dashTimeLeft < 0)
-                return;
+            if (_dashTimeLeft <= 0 || !Input.GetKey(KeyCode.LeftShift))
+            {
+                print(_dashTimeLeft);
+                EndDash();
+                print("Ending Dash");
 
-            if (_moveInput != Vector2.zero)
-                dashDirection = _moveInput;
-
-            else
-                dashDirection = IsFacingRight ? Vector2.right : Vector2.left;
-
-            //print(dashDirection);
-            Dash(dashDirection, IsRunning());
+            }
         }
 
         #endregion
@@ -176,6 +173,25 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+    private void FixedUpdate()
+    {
+        if (IsDashing)
+        {
+            int dashDir;
+            dashDir = IsFacingRight ? 1 : -1;
+            print(dashDir);
+            RB.linearVelocityX = Mathf.MoveTowards(
+                RB.linearVelocityX,
+                dashDir * Data.dashSpeed,
+                Data.dashAccel * Time.fixedDeltaTime);
+
+            return;
+
+        }
+
+        Run();
+    }
+
     public void OnJumpInput()
     {
         LastPressedJumpTime = Data.jumpInputBufferTime;
@@ -201,21 +217,6 @@ public class PlayerMovement : MonoBehaviour
         print("CanJumpCut");
     }
 
-    private void FixedUpdate()
-    {
-        if (IsDashing)
-        {
-            int dashDir;
-            dashDir = IsFacingRight ? 1 : -1;
-            RB.linearVelocityX = Mathf.MoveTowards(
-                RB.linearVelocityX,
-                dashDir * Data.dashSpeed,
-                Data.dashAccel * Time.fixedDeltaTime);
-
-        }
-
-        Run();
-    }
 
     //MOVEMENT METHODS
 
@@ -245,19 +246,38 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    //DASH METHOD
+    //DASH METHODS
 
     private void StartDash()
     {
         IsDashing = true;
         _dashTimeLeft = Data.dashTime;
         LastPressedDashTime = 0;
+
         int dashDir = IsFacingRight ? 1 : -1;
+        bool isRunning = Mathf.Abs(RB.linearVelocityX) > Data.runMaxSpeed * 0.9f;
+        float startSpeed = isRunning ? Data.dashSpeed : Data.dashSpeed * 0.5f;
 
+        RB.linearVelocityX = dashDir * startSpeed;
 
+        print("Started Dashing");
+        print(_dashTimeLeft);
+        print(dashDir);
 
     }
 
+    private void EndDash()
+    {
+        IsDashing = false;
+        _dashTimeLeft = 0;
+
+    }
+
+    private bool CanDash()
+    {
+        return !IsDashing && _isOnGround && !IsJumping;
+
+    }
 
     // RUN METHOD
     private void Run()
@@ -358,11 +378,6 @@ public class PlayerMovement : MonoBehaviour
         return isFalling;
     }
 
-    private bool CanDash()
-    {
-        return !IsDashing && _isOnGround;
-
-    }
 
     private bool IsRunning()
     {

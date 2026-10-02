@@ -25,10 +25,10 @@ MonoBehaviour:
   jumpInputBufferTime: 0.3
   jumpForce: 3
   coyoteTime: 0.1
-  jumpHangTimeThreshold: 13.9
-  jumpHangAccelerationMult: 2
-  jumpHangTargetSpeedMult: 3.72
+  jumpHangTimeThreshold: 2.3
+  jumpHangAccelerationMult: 1.78
+  jumpHangFloatMult: 18.3
   dashInputBufferTime: 0.5
-  dashSpeed: 11
-  dashTime: 2
-  dashAccel: 0.4
+  dashSpeed: 15
+  dashTime: 1
+  dashAccel: 0.93
