@@ -29,7 +29,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Transform _dashCheckPoint;
     [SerializeField] private Vector2 _dashCheckSize = new Vector2(0.49f, 0.03f);
 
+    //GROUND AND WALL CHECK
     [SerializeField] private bool _isOnGround;
+    [SerializeField] private bool _isOnWall;
     #endregion
 
     #region INPUT PARAMETERS
@@ -145,13 +147,31 @@ public class PlayerMovement : MonoBehaviour
         {
             _isOnGround = false;
         }
+
+        bool previousHitWall = _isOnWall;
+        if (Physics2D.OverlapBox(_dashCheckPoint.position, _dashCheckSize, 0, _groundLayer))
+        {
+            _isOnWall = true;
+        }
+        else
+        {
+            _isOnWall = false;
+        }
         #endregion
 
 
-        //LANDING FIRST FRAME CHECK
+        //FIRST FRAME CHECKS
+
+        //LANDING
         if (!previousOnGround && _isOnGround)
         {
             Squash.DoSquash(SquashJumpAmount);
+        }
+
+        //WALL HIT
+        if (!previousHitWall && _isOnWall && IsDashing)
+        {
+            Squash.DoSquash(SquashJumpAmount * 2);
         }
 
         if (IsJumping && RB.linearVelocityY < 0)
@@ -361,6 +381,8 @@ public class PlayerMovement : MonoBehaviour
     void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireCube(_groundCheckPoint.position, _groundCheckSize);
+        Gizmos.DrawWireCube(_dashCheckPoint.position, _dashCheckSize);
+
     }
 
     //JUMP & ABILITY CHECKS

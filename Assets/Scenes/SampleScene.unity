@@ -357,6 +357,37 @@ MonoBehaviour:
   _squash: {x: 1, y: 1}
   _localScale: {x: 6.92, y: 6.92}
   _speed: 4
+--- !u!1 &144497695
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 144497696}
+  m_Layer: 0
+  m_Name: DashCheckPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &144497696
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 144497695}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.471, y: -0.06, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1844471437}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &159284156
 GameObject:
   m_ObjectHideFlags: 0
@@ -1627,9 +1658,10 @@ MonoBehaviour:
   Squash: {fileID: 134622289}
   _groundCheckPoint: {fileID: 1623252366}
   _groundCheckSize: {x: 0.92, y: 0.03}
-  _dashCheckPoint: {fileID: 0}
-  _dashCheckSize: {x: 0.49, y: 0.03}
+  _dashCheckPoint: {fileID: 144497696}
+  _dashCheckSize: {x: 0.03, y: 1.53}
   _isOnGround: 0
+  _isOnWall: 0
   _dashTimeLeft: 0
   SquashJumpAmount: 0.3
 --- !u!4 &1844471437
@@ -1648,6 +1680,7 @@ Transform:
   - {fileID: 134622286}
   - {fileID: 159284157}
   - {fileID: 1623252366}
+  - {fileID: 144497696}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &1844471438

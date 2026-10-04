@@ -18,11 +18,11 @@ MonoBehaviour:
   runDecceleration: 3.48
   runDeccelAmount: 19.099892
   accelInAir: 0.92
-  deccelInAir: 0.39
+  deccelInAir: 0.01
   doConserveMomentum: 1
   gravityScale: 6
   JumpCutGravity: 4
-  jumpInputBufferTime: 0.3
+  jumpInputBufferTime: 0.97
   jumpForce: 3
   coyoteTime: 0.1
   jumpHangTimeThreshold: 2.3
@@ -30,5 +30,5 @@ MonoBehaviour:
   jumpHangFloatMult: 18.3
   dashInputBufferTime: 0.5
   dashSpeed: 11.3
-  dashTime: 1
-  dashAccel: 45.5
+  dashTime: 0.76
+  dashAccel: 46.9
