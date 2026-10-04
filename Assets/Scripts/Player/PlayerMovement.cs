@@ -179,7 +179,9 @@ public class PlayerMovement : MonoBehaviour
         {
             int dashDir;
             dashDir = IsFacingRight ? 1 : -1;
-            print(dashDir);
+            // float dashStartSpeed = Mathf.Abs(RB.linearVelocityX) > Data.runMaxSpeed / 2
+            //  ? Data.runMaxSpeed : Data.runMaxSpeed / 2;
+            // print(dashDir);
             RB.linearVelocityX = Mathf.MoveTowards(
                 RB.linearVelocityX,
                 dashDir * Data.dashSpeed,
@@ -256,7 +258,8 @@ public class PlayerMovement : MonoBehaviour
 
         int dashDir = IsFacingRight ? 1 : -1;
         bool isRunning = Mathf.Abs(RB.linearVelocityX) > Data.runMaxSpeed * 0.9f;
-        float startSpeed = isRunning ? Data.dashSpeed : Data.dashSpeed * 0.5f;
+        float startSpeed = isRunning ?
+        Data.dashSpeed : Data.dashSpeed * RB.linearVelocityX * 0.1f;
 
         RB.linearVelocityX = dashDir * startSpeed;
 
