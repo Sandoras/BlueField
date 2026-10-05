@@ -28,7 +28,7 @@ MonoBehaviour:
   jumpHangTimeThreshold: 2.3
   jumpHangAccelerationMult: 1.78
   jumpHangFloatMult: 18.3
-  dashInputBufferTime: 0.5
+  dashInputBufferTime: 0.01
   dashSpeed: 11.3
   dashTime: 0.76
   dashAccel: 46.9

@@ -141,11 +141,12 @@ public class PlayerMovement : MonoBehaviour
             LastOnGroundTime = Data.coyoteTime;
             _isOnGround = true;
             // print(LastOnGroundTime);
-            // print("On ground");
+            print(_isOnGround);
         }
         else
         {
             _isOnGround = false;
+            print(_isOnGround);
         }
 
         bool previousHitWall = _isOnWall;
@@ -279,7 +280,7 @@ public class PlayerMovement : MonoBehaviour
         int dashDir = IsFacingRight ? 1 : -1;
         bool isRunning = Mathf.Abs(RB.linearVelocityX) > Data.runMaxSpeed * 0.9f;
         float startSpeed = isRunning ?
-        Data.dashSpeed : Data.dashSpeed * RB.linearVelocityX * 0.1f;
+        dashDir * Data.dashSpeed : dashDir * Data.dashSpeed * RB.linearVelocityX * 0.1f;
 
         RB.linearVelocityX = dashDir * startSpeed;
 
