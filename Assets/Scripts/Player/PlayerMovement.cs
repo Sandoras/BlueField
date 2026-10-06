@@ -38,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
     //CROUCH SETTINGS
     [SerializeField] private float _crouchingColliderHeight = 0.5f;
     private Vector2 _standingColliderSize;
+    private Vector2 _standingColliderOffset;
 
     #region INPUT PARAMETERS
     private Vector2 _moveInput;
@@ -70,6 +71,7 @@ public class PlayerMovement : MonoBehaviour
 
         // CROUCH SETUP
         _standingColliderSize = BoxCollider.size;
+        _standingColliderOffset = BoxCollider.offset;
 
     }
 
@@ -281,15 +283,18 @@ public class PlayerMovement : MonoBehaviour
 
     private void Crouch()
     {
-        Vector2 size = _standingColliderSize;
+        Vector2 colliderSize = _standingColliderSize;
+        Vector2 colliderOffset = _standingColliderOffset;
 
 
         if (IsCrouching())
         {
-            size.y *= 0.5f;
+            colliderSize.y *= 0.5f;
+            colliderOffset.y = -0.48f;
         }
         print(IsCrouching());
-        BoxCollider.size = size;
+        BoxCollider.size = colliderSize;
+        BoxCollider.offset = colliderOffset;
     }
 
     //DASH METHODS
