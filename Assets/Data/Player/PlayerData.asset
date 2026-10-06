@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: PlayerData
   m_EditorClassIdentifier: Assembly-CSharp::PlayerRunData
   runMaxSpeed: 9.11
+  slowedMaxSpeed: 3
   runAcceleration: 2.06
   runAccelAmount: 11.306257
   runDecceleration: 3.48
