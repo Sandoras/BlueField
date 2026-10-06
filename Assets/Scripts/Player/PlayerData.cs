@@ -9,6 +9,7 @@ public class PlayerData : ScriptableObject
     [Header("Run")]
 
     public float runMaxSpeed; // Target max speed
+    public float slowedMaxSpeed; // Target slowed max speed. Used for crouch and other states
     public float runAcceleration; //Time (approx.) we want it to take for the player to accelerate from 0 to the runMaxSpeed
 
     [HideInInspector] public float runAccelAmount;  // The amplitude applied to the player. Multiplied with speedDiff.

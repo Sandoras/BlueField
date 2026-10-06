@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
 
     #region COMPONENTS
     public Rigidbody2D RB { get; private set; }
+    public BoxCollider2D BoxCollider;
     public Animator PlayerAnimator;
     public SquashSprite Squash;
     #endregion
@@ -33,6 +34,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private bool _isOnGround;
     [SerializeField] private bool _isOnWall;
     #endregion
+
+    //CROUCH SETTINGS
+    [SerializeField] private float _crouchingColliderHeight = 0.5f;
+    private Vector2 _standingColliderSize;
 
     #region INPUT PARAMETERS
     private Vector2 _moveInput;
@@ -61,6 +66,10 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         RB = GetComponent<Rigidbody2D>();
+        BoxCollider = GetComponent<BoxCollider2D>();
+
+        // CROUCH SETUP
+        _standingColliderSize = BoxCollider.size;
 
     }
 
@@ -141,12 +150,12 @@ public class PlayerMovement : MonoBehaviour
             LastOnGroundTime = Data.coyoteTime;
             _isOnGround = true;
             // print(LastOnGroundTime);
-            print(_isOnGround);
+            //print(_isOnGround);
         }
         else
         {
             _isOnGround = false;
-            print(_isOnGround);
+            //print(_isOnGround);
         }
 
         bool previousHitWall = _isOnWall;
@@ -213,6 +222,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         Run();
+        Crouch();
     }
 
     public void OnJumpInput()
@@ -269,6 +279,19 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+    private void Crouch()
+    {
+        Vector2 size = _standingColliderSize;
+
+
+        if (IsCrouching())
+        {
+            size.y *= 0.5f;
+        }
+        print(IsCrouching());
+        BoxCollider.size = size;
+    }
+
     //DASH METHODS
 
     private void StartDash()
@@ -309,6 +332,8 @@ public class PlayerMovement : MonoBehaviour
         //float targetSpeed = _moveInput.x * Data.runMaxSpeed;
         int inputX = Mathf.RoundToInt(_moveInput.x);
 
+        float moveMaxSpeed = IsCrouching() ? Data.slowedMaxSpeed : Data.runMaxSpeed;
+
         #region CALCULATE AccelRate
         float accelRate = Data.runAccelAmount;
 
@@ -321,10 +346,13 @@ public class PlayerMovement : MonoBehaviour
         if (!_isOnGround)
             deccelRate *= Data.deccelInAir;
         #endregion
+
+        //If no input is held accelRate is now deccelRate
         if (inputX == 0)
         {
             accelRate = deccelRate;
         }
+
         //Bonus jump apex acceleration && hang time
         float previousVelocityY = RB.linearVelocityY;
         if (IsJumping && Mathf.Abs(RB.linearVelocityY) < Data.jumpHangTimeThreshold)
@@ -338,7 +366,7 @@ public class PlayerMovement : MonoBehaviour
 
 
         #region CONSERVE MOMENTUM
-        if (Data.doConserveMomentum && Mathf.Abs(RB.linearVelocity.x) > Data.runMaxSpeed
+        if (Data.doConserveMomentum && Mathf.Abs(RB.linearVelocity.x) > moveMaxSpeed
          && Mathf.Sign(RB.linearVelocityX) == inputX
          && inputX != 0 && !_isOnGround)
         {
@@ -346,7 +374,7 @@ public class PlayerMovement : MonoBehaviour
         }
         #endregion
 
-        float speedDiff = (inputX * Data.runMaxSpeed) - RB.linearVelocityX;
+        float speedDiff = (inputX * moveMaxSpeed) - RB.linearVelocityX;
 
         float movement = speedDiff * accelRate;
 
@@ -386,7 +414,7 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    //JUMP & ABILITY CHECKS
+    //JUMP, ABILITY & MOVEMENT CHECKS
     private bool CanJump()
     {
         return LastOnGroundTime > 0 && !IsJumping;
@@ -402,6 +430,13 @@ public class PlayerMovement : MonoBehaviour
     {
         bool isFalling = !_isOnGround && RB.linearVelocityY < -0.1f;
         return isFalling;
+    }
+
+    private bool IsCrouching()
+    {
+        bool isCrouching = _moveInput.y < 0;
+        //print(_moveInput.y);
+        return isCrouching;
     }
 
 
