@@ -146,8 +146,8 @@ public class PlayerMovement : MonoBehaviour
                 print(_dashTimeLeft);
                 EndDash();
                 print("Ending Dash");
-
             }
+
         }
 
         //CROUCH INPUT
@@ -209,13 +209,19 @@ public class PlayerMovement : MonoBehaviour
         //WALL HIT
         if (!previousHitWall && _isOnWall && IsDashing)
         {
+            Collider2D hitCollider = Physics2D.OverlapBox(_dashCheckPoint.position, _dashCheckSize, 0, _groundLayer);
             Squash.DoSquash(SquashJumpAmount * 2);
-        }
+            if (hitCollider != null)
+            {
 
+                hitCollider.GetComponent<Breakable>().Break();
+            }
+        }
         if (IsJumping && RB.linearVelocityY < 0)
         {
             IsJumping = false;
             SetGravityScale(Data.gravityScale);
+
             //isJumpFalling = true;
         }
 
@@ -228,6 +234,8 @@ public class PlayerMovement : MonoBehaviour
         PlayerAnimator.SetFloat("f_ySpeed", RB.linearVelocityY);
         PlayerAnimator.SetBool("b_IsOnGround", _isOnGround);
         PlayerAnimator.SetBool("b_IsFalling", IsFalling());
+        PlayerAnimator.SetBool("b_IsCrouching", IsCrouching);
+        PlayerAnimator.SetBool("b_IsDashing", IsDashing);
 
     }
 

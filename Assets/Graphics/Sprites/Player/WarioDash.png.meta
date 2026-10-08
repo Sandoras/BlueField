@@ -1,25 +1,22 @@
 fileFormatVersion: 2
-guid: b66013ae0d4cb44d2ac71b663e9a1891
+guid: 0bc95777c1fd0443da1c3cbe7567b759
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1839204832474616434
-    second: WarioCrawl_0
+      213: -3354077330741468185
+    second: WarioDash_0
   - first:
-      213: -9108142954674966900
-    second: WarioCrawl_1
+      213: -2832322726880727615
+    second: WarioDash_1
   - first:
-      213: -1753382075456177202
-    second: WarioCrawl_2
+      213: -1368013500802190165
+    second: WarioDash_2
   - first:
-      213: 8823855697665087163
-    second: WarioCrawl_3
+      213: 700382804356694225
+    second: WarioDash_3
   - first:
-      213: -2089482884735537649
-    second: WarioCrawl_4
-  - first:
-      213: 2335331217573470279
-    second: WarioCrawl_5
+      213: -3162242143205137081
+    second: WarioDash_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -130,13 +127,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: WarioCrawl_0
+      name: WarioDash_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 6
-        width: 29
-        height: 35
+        x: 6
+        y: 7
+        width: 42
+        height: 41
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,21 +142,21 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e8d2b2b03f4d976e0800000000000000
-      internalID: -1839204832474616434
+      spriteID: 7e3e6f7307ce371d0800000000000000
+      internalID: -3354077330741468185
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WarioCrawl_1
+      name: WarioDash_1
       rect:
         serializedVersion: 2
-        x: 34
-        y: 6
+        x: 51
+        y: 4
         width: 36
-        height: 35
-      alignment: 0
+        height: 46
+      alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
@@ -167,20 +164,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c8e2f1f5d30699180800000000000000
-      internalID: -9108142954674966900
+      spriteID: 1cd22077c7191b8d0800000000000000
+      internalID: -2832322726880727615
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WarioCrawl_2
+      name: WarioDash_2
       rect:
         serializedVersion: 2
-        x: 73
-        y: 6
-        width: 33
-        height: 35
+        x: 90
+        y: 4
+        width: 36
+        height: 46
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -189,20 +186,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ecbb5ecca4cbaa7e0800000000000000
-      internalID: -1753382075456177202
+      spriteID: ba43fb418f6d30de0800000000000000
+      internalID: -1368013500802190165
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WarioCrawl_3
+      name: WarioDash_3
       rect:
         serializedVersion: 2
-        x: 109
-        y: 6
-        width: 26
-        height: 35
+        x: 129
+        y: 8
+        width: 35
+        height: 33
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -211,20 +208,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bb652a89102a47a70800000000000000
-      internalID: 8823855697665087163
+      spriteID: 1d00974237248b900800000000000000
+      internalID: 700382804356694225
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WarioCrawl_4
+      name: WarioDash_4
       rect:
         serializedVersion: 2
-        x: 138
-        y: 6
-        width: 30
-        height: 35
+        x: 167
+        y: 8
+        width: 37
+        height: 33
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -233,30 +230,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f0e641b036aa003e0800000000000000
-      internalID: -2089482884735537649
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: WarioCrawl_5
-      rect:
-        serializedVersion: 2
-        x: 171
-        y: 6
-        width: 28
-        height: 35
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 740e8588e53c86020800000000000000
-      internalID: 2335331217573470279
+      spriteID: 745ec7866857d14d0800000000000000
+      internalID: -3162242143205137081
       vertices: []
       indices: 
       edges: []
@@ -265,7 +240,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 8f4ae2941eb314cd3a9707065b78d027
+    spriteID: 5ee2bec6ee98d495ea28aaadb4fb8202
     internalID: 0
     vertices: []
     indices: 
@@ -273,16 +248,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      WarioCrawl_0: -1839204832474616434
-      WarioCrawl_1: -9108142954674966900
-      WarioCrawl_2: -1753382075456177202
-      WarioCrawl_3: 8823855697665087163
-      WarioCrawl_4: -2089482884735537649
-      WarioCrawl_5: 2335331217573470279
+      WarioDash_0: -3354077330741468185
+      WarioDash_1: -2832322726880727615
+      WarioDash_2: -1368013500802190165
+      WarioDash_3: 700382804356694225
+      WarioDash_4: -3162242143205137081
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

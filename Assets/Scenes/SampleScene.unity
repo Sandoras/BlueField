@@ -25457,9 +25457,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76f21f4c2b6a44bbf865f50fcf57dabb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  _playerLayer:
-    serializedVersion: 2
-    m_Bits: 1024
 --- !u!212 &1077877193
 SpriteRenderer:
   serializedVersion: 3
