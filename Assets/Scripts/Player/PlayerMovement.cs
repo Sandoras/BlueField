@@ -30,15 +30,22 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Transform _dashCheckPoint;
     [SerializeField] private Vector2 _dashCheckSize = new Vector2(0.49f, 0.03f);
 
-    //GROUND AND WALL CHECK
-    [SerializeField] private bool _isOnGround;
-    [SerializeField] private bool _isOnWall;
-    #endregion
+    //CROUCH
+    [SerializeField] private Transform _crouchCheckPoint;
+    [SerializeField] private Vector2 _crouchCheckSize = new Vector2(0.49f, 0.03f);
+    public bool IsCrouching = false;
+    public bool tryingToStand = false;
 
     //CROUCH SETTINGS
     [SerializeField] private float _crouchingColliderHeight = 0.5f;
     private Vector2 _standingColliderSize;
     private Vector2 _standingColliderOffset;
+
+    //GROUND AND WALL CHECK
+    [SerializeField] private bool _isOnGround;
+    [SerializeField] private bool _isOnWall;
+    #endregion
+
 
     #region INPUT PARAMETERS
     private Vector2 _moveInput;
@@ -143,6 +150,25 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
+        //CROUCH INPUT
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            IsCrouching = true;
+        }
+
+        else if (Input.GetKeyUp(KeyCode.S) && IsCrouching)
+        {
+            tryingToStand = true;
+        }
+
+        if (tryingToStand)
+        {
+            if (!Physics2D.OverlapBox(_crouchCheckPoint.position, _crouchCheckSize, 0, _groundLayer))
+            {
+                IsCrouching = false;
+                tryingToStand = false;
+            }
+        }
         #endregion
 
         #region COLLISION CHECKS
@@ -287,12 +313,12 @@ public class PlayerMovement : MonoBehaviour
         Vector2 colliderOffset = _standingColliderOffset;
 
 
-        if (IsCrouching())
+        if (IsCrouching)
         {
             colliderSize.y *= 0.5f;
             colliderOffset.y = -0.48f;
         }
-        print(IsCrouching());
+        //print(IsCrouching());
         BoxCollider.size = colliderSize;
         BoxCollider.offset = colliderOffset;
     }
@@ -337,7 +363,7 @@ public class PlayerMovement : MonoBehaviour
         //float targetSpeed = _moveInput.x * Data.runMaxSpeed;
         int inputX = Mathf.RoundToInt(_moveInput.x);
 
-        float moveMaxSpeed = IsCrouching() ? Data.slowedMaxSpeed : Data.runMaxSpeed;
+        float moveMaxSpeed = IsCrouching ? Data.slowedMaxSpeed : Data.runMaxSpeed;
 
         #region CALCULATE AccelRate
         float accelRate = Data.runAccelAmount;
@@ -358,7 +384,7 @@ public class PlayerMovement : MonoBehaviour
             accelRate = deccelRate;
         }
 
-        //Bonus jump apex acceleration && hang time
+        //Bonus jump hang time
         float previousVelocityY = RB.linearVelocityY;
         if (IsJumping && Mathf.Abs(RB.linearVelocityY) < Data.jumpHangTimeThreshold)
         {
@@ -412,10 +438,11 @@ public class PlayerMovement : MonoBehaviour
     {
         RB.gravityScale = scale;
     }
-    void OnDrawGizmosSelected()
+    void OnDrawGizmos()
     {
         Gizmos.DrawWireCube(_groundCheckPoint.position, _groundCheckSize);
         Gizmos.DrawWireCube(_dashCheckPoint.position, _dashCheckSize);
+        Gizmos.DrawWireCube(_crouchCheckPoint.position, _crouchCheckSize);
 
     }
 
@@ -437,12 +464,23 @@ public class PlayerMovement : MonoBehaviour
         return isFalling;
     }
 
-    private bool IsCrouching()
-    {
-        bool isCrouching = _moveInput.y < 0;
-        //print(_moveInput.y);
-        return isCrouching;
-    }
+    // private bool IsCrouching()
+    // {
+    //     bool isCrouching = _moveInput.y < 0;
+    //     bool canStand = true;
+    //     if (Physics2D.OverlapBox(_crouchCheckPoint.position, _crouchCheckSize, 0, _groundLayer) && isCrouching)
+    //     {
+    //         canStand = false;
+
+    //     }
+    //     //print(_moveInput.y);
+    //     if (isCrouching)
+    //         return isCrouching;
+
+
+    //     else
+    //         return isCrouching && canStand;
+    // }
 
 
     private bool IsRunning()
