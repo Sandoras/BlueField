@@ -1,28 +1,37 @@
 fileFormatVersion: 2
-guid: c3d8fa32860084026b11d31451e652fb
+guid: 32a9267e5e3b14a949a52857f797cc96
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8964689489005142448
-    second: Wario_Idle_0
+      213: 5220321735226266046
+    second: WarioRun_0
   - first:
-      213: 4841102532528876536
-    second: Wario_Idle_1
+      213: 1098225071821848860
+    second: WarioRun_1
   - first:
-      213: 3176743035499044123
-    second: Wario_Idle_2
+      213: -6834376841882398130
+    second: WarioRun_2
   - first:
-      213: -7777090062722033676
-    second: Wario_Idle_3
+      213: -8859015820112789120
+    second: WarioRun_3
   - first:
-      213: -2413063333810667041
-    second: Wario_Idle_4
+      213: -8091561889868519168
+    second: WarioRun_4
   - first:
-      213: -4308824230955012528
-    second: Wario_Idle_5
+      213: -8400273377756907046
+    second: WarioRun_5
   - first:
-      213: -1313427561157723144
-    second: Wario_Idle_6
+      213: 4451717347191292313
+    second: WarioRun_6
+  - first:
+      213: -3206622173191039193
+    second: WarioRun_7
+  - first:
+      213: 8662872419403799443
+    second: WarioRun_8
+  - first:
+      213: 3597749015103310245
+    second: WarioRun_9
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -69,7 +78,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 35
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -133,155 +142,221 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Wario_Idle_0
+      name: WarioRun_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 25
+        x: 6
+        y: 4
+        width: 27
         height: 35
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0b164d1e799f86c70800000000000000
-      internalID: 8964689489005142448
+      spriteID: eb19961b5fe427840800000000000000
+      internalID: 5220321735226266046
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Wario_Idle_1
+      name: WarioRun_1
       rect:
         serializedVersion: 2
-        x: 28
-        y: 0
+        x: 36
+        y: 4
+        width: 30
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c118e5952edad3f00800000000000000
+      internalID: 1098225071821848860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarioRun_2
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 4
+        width: 30
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e42917ee87a6721a0800000000000000
+      internalID: -6834376841882398130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarioRun_3
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 4
+        width: 27
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0818c967c047e0580800000000000000
+      internalID: -8859015820112789120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarioRun_4
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 4
         width: 26
         height: 35
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8fba0a4aa1d0f2340800000000000000
-      internalID: 4841102532528876536
+      spriteID: 0096c44055ff4bf80800000000000000
+      internalID: -8091561889868519168
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Wario_Idle_2
+      name: WarioRun_5
       rect:
         serializedVersion: 2
-        x: 57
-        y: 0
+        x: 160
+        y: 4
+        width: 32
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad9f0a69edb3c6b80800000000000000
+      internalID: -8400273377756907046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarioRun_6
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 4
+        width: 31
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99108cf475da7cd30800000000000000
+      internalID: 4451717347191292313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarioRun_7
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 4
+        width: 34
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7279e067f1acf73d0800000000000000
+      internalID: -3206622173191039193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarioRun_8
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 4
+        width: 29
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39b971d4194b83870800000000000000
+      internalID: 8662872419403799443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarioRun_9
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 4
         width: 26
         height: 35
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b1ddd9da5fe061c20800000000000000
-      internalID: 3176743035499044123
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Wario_Idle_3
-      rect:
-        serializedVersion: 2
-        x: 86
-        y: 0
-        width: 26
-        height: 35
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4f79b31fac9321490800000000000000
-      internalID: -7777090062722033676
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Wario_Idle_4
-      rect:
-        serializedVersion: 2
-        x: 115
-        y: 0
-        width: 26
-        height: 35
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: fd102bfcea3138ed0800000000000000
-      internalID: -2413063333810667041
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Wario_Idle_5
-      rect:
-        serializedVersion: 2
-        x: 144
-        y: 0
-        width: 26
-        height: 35
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 05ea45ae03bf334c0800000000000000
-      internalID: -4308824230955012528
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Wario_Idle_6
-      rect:
-        serializedVersion: 2
-        x: 173
-        y: 0
-        width: 24
-        height: 35
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8fb7cfa8794c5cde0800000000000000
-      internalID: -1313427561157723144
+      spriteID: 5a98e34eaa5cde130800000000000000
+      internalID: 3597749015103310245
       vertices: []
       indices: 
       edges: []
@@ -290,7 +365,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 8f8764ef69a0246f7bb1200f38d0b01b
     internalID: 0
     vertices: []
     indices: 
@@ -300,13 +375,16 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Wario_Idle_0: 8964689489005142448
-      Wario_Idle_1: 4841102532528876536
-      Wario_Idle_2: 3176743035499044123
-      Wario_Idle_3: -7777090062722033676
-      Wario_Idle_4: -2413063333810667041
-      Wario_Idle_5: -4308824230955012528
-      Wario_Idle_6: -1313427561157723144
+      WarioRun_0: 5220321735226266046
+      WarioRun_1: 1098225071821848860
+      WarioRun_2: -6834376841882398130
+      WarioRun_3: -8859015820112789120
+      WarioRun_4: -8091561889868519168
+      WarioRun_5: -8400273377756907046
+      WarioRun_6: 4451717347191292313
+      WarioRun_7: -3206622173191039193
+      WarioRun_8: 8662872419403799443
+      WarioRun_9: 3597749015103310245
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
