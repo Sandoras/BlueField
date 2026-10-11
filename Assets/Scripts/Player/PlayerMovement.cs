@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
     public bool tryingToStand = false;
 
     //CROUCH SETTINGS
-    [SerializeField] private float _crouchingColliderHeight = 0.5f;
+    //[SerializeField] private float _crouchingColliderHeight = 0.5f;
     private Vector2 _standingColliderSize;
     private Vector2 _standingColliderOffset;
 
@@ -144,6 +144,7 @@ public class PlayerMovement : MonoBehaviour
             if (_dashTimeLeft <= 0 || !Input.GetKey(KeyCode.LeftShift))
             {
                 print(_dashTimeLeft);
+                _dashTimeLeft = 0;
                 EndDash();
                 print("Ending Dash");
             }
@@ -209,13 +210,24 @@ public class PlayerMovement : MonoBehaviour
         //WALL HIT
         if (!previousHitWall && _isOnWall && IsDashing)
         {
-            Collider2D hitCollider = Physics2D.OverlapBox(_dashCheckPoint.position, _dashCheckSize, 0, _groundLayer);
-            Squash.DoSquash(SquashJumpAmount * 2);
+            Collider2D hitCollider =
+
+            Physics2D.OverlapBox(_dashCheckPoint.position,
+            _dashCheckSize,
+            0,
+            _groundLayer);
+
             if (hitCollider != null)
             {
-
                 hitCollider.GetComponent<Breakable>().Break();
+
             }
+            else
+            {
+                EndDash();
+                Squash.DoSquash(SquashJumpAmount * 2);
+            }
+
         }
         if (IsJumping && RB.linearVelocityY < 0)
         {
@@ -344,7 +356,7 @@ public class PlayerMovement : MonoBehaviour
         float startSpeed = isRunning ?
         dashDir * Data.dashSpeed : dashDir * Data.dashSpeed * RB.linearVelocityX * 0.1f;
 
-        RB.linearVelocityX = dashDir * startSpeed;
+        RB.linearVelocityX = startSpeed;
 
         print("Started Dashing");
         print(_dashTimeLeft);
@@ -439,6 +451,7 @@ public class PlayerMovement : MonoBehaviour
         transform.localScale = scale;
 
         IsFacingRight = !IsFacingRight;
+        print("Is Facing right? " + IsFacingRight);
     }
 
     //GENERAL METHODS
