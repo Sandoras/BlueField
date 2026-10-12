@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour
 
     public PlayerData Data;
 
+    public Vector3 RespawnPoint;
+
     #region LAYERS & TAGS
     [Header("Layers & Tags")]
     [SerializeField] private LayerMask _groundLayer;
@@ -92,6 +94,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        if (transform.position.y <= -56)
+        {
+            Respawn();
+
+        }
+
         #region TIMERS
         LastOnGroundTime -= Time.deltaTime;
         LastPressedJumpTime -= Time.deltaTime;
@@ -509,6 +517,10 @@ public class PlayerMovement : MonoBehaviour
         return Mathf.Abs(RB.linearVelocityX) >= 0.1f;
     }
 
+    public void Respawn()
+    {
+        transform.position = RespawnPoint;
+    }
 
 
 
