@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public PlayerData Data;
 
     public Vector3 RespawnPoint;
+    public Vector3 StartingRespawnPoint;
 
     #region LAYERS & TAGS
     [Header("Layers & Tags")]
@@ -88,6 +89,7 @@ public class PlayerMovement : MonoBehaviour
     {
         SetGravityScale(Data.gravityScale);
         IsFacingRight = true;
+        StartingRespawnPoint = transform.position;
         //Time.timeScale = 0.1f;
 
     }
@@ -123,6 +125,12 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Space))
         {
             JumpCut();
+        }
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            RespawnPoint = StartingRespawnPoint;
+            Respawn();
         }
 
         if (CanJump() && LastPressedJumpTime > 0)
