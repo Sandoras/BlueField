@@ -308,9 +308,18 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!CanJumpCut())
             return;
-        //   _isJumpCut = true;
 
-        RB.linearVelocityY /= Data.JumpCutGravity;
+        if (!IsDashing)
+            RB.linearVelocityY /= Data.JumpCutGravity;
+
+
+        //float jumpCutGravity;
+
+        //jumpCutGravity = !IsDashing ? RB.linearVelocityY /= Data.JumpCutGravity : RB.linearVelocityY /= Data.DashCutGravity;
+
+        //RB.linearVelocityY = jumpCutGravity;
+
+
         print("CanJumpCut");
     }
 
@@ -327,7 +336,7 @@ public class PlayerMovement : MonoBehaviour
         LastOnGroundTime = 0f;
 
         //Perform jump
-        float force = Data.jumpForce;
+        float force = !IsDashing ? Data.jumpForce : Data.dashJumpForce;
 
         // Increase the force applied if we are falling
         if (RB.linearVelocityY < 0)

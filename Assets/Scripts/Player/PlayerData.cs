@@ -52,6 +52,8 @@ public class PlayerData : ScriptableObject
     public float dashSpeed = 1f;
     public float dashTime = 3;
     public float dashAccel;
+    public float dashJumpForce;
+    // public float DashCutGravity;
 
 
 

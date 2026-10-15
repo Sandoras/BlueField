@@ -33,3 +33,4 @@ MonoBehaviour:
   dashSpeed: 11.3
   dashTime: 0.76
   dashAccel: 46.9
+  dashJumpForce: 0
