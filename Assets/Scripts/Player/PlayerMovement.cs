@@ -141,7 +141,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //DASH INPUT
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.LeftShift) && !IsCrouching)
         {
             OnDashInput();
             //print("leftshiftkeydown");
@@ -159,7 +159,7 @@ public class PlayerMovement : MonoBehaviour
 
             if (_dashTimeLeft <= 0 || !Input.GetKey(KeyCode.LeftShift))
             {
-                print(_dashTimeLeft);
+                //print(_dashTimeLeft);
                 _dashTimeLeft = 0;
                 EndDash();
                 print("Ending Dash");
