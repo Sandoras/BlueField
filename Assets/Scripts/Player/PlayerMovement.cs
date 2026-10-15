@@ -157,9 +157,16 @@ public class PlayerMovement : MonoBehaviour
             _dashTimeLeft -= Time.deltaTime;
             print(_dashTimeLeft);
 
-            if (_dashTimeLeft <= 0 || !Input.GetKey(KeyCode.LeftShift))
+
+            if (_isOnGround && _dashTimeLeft <= 0 || !Input.GetKey(KeyCode.LeftShift))
             {
+                // if (!_isOnGround)
+                // {
+                //     return;
+                // }
+
                 //print(_dashTimeLeft);
+
                 _dashTimeLeft = 0;
                 EndDash();
                 print("Ending Dash");
@@ -188,14 +195,14 @@ public class PlayerMovement : MonoBehaviour
         }
         #endregion
 
-        #region COLLISION CHECKS
+        // GROUND COLLISION CHECK
         bool previousOnGround = _isOnGround;
         if (Physics2D.OverlapBox(_groundCheckPoint.position, _groundCheckSize, 0, _groundLayer))
         {
             LastOnGroundTime = Data.coyoteTime;
             _isOnGround = true;
             // print(LastOnGroundTime);
-            //print(_isOnGround);
+            //print("Is on ground?:" + _isOnGround);
         }
         else
         {
@@ -203,6 +210,7 @@ public class PlayerMovement : MonoBehaviour
             //print(_isOnGround);
         }
 
+        // WALL COLLISION CHECK
         bool previousHitWall = _isOnWall;
         if (Physics2D.OverlapBox(_dashCheckPoint.position, _dashCheckSize, 0, _groundLayer))
         {
@@ -212,26 +220,10 @@ public class PlayerMovement : MonoBehaviour
         {
             _isOnWall = false;
         }
-        #endregion
-
-
-        //FIRST FRAME CHECKS
-
-        //LANDING
-        if (!previousOnGround && _isOnGround)
-        {
-            Squash.DoSquash(SquashJumpAmount);
-        }
-
         //WALL HIT
-        if (!previousHitWall && _isOnWall && IsDashing)
+        if (IsDashing && previousHitWall)
         {
-            Collider2D hitCollider =
-
-            Physics2D.OverlapBox(_dashCheckPoint.position,
-            _dashCheckSize,
-            0,
-            _groundLayer);
+            Collider2D hitCollider = Physics2D.OverlapBox(_dashCheckPoint.position, _dashCheckSize, 0, _groundLayer);
 
             if (hitCollider != null)
             {
@@ -245,16 +237,20 @@ public class PlayerMovement : MonoBehaviour
             }
 
         }
+
+
+
+        //FIRST FRAME CHECKS
+
+        //LANDING
+        if (!previousOnGround && _isOnGround)
+        {
+            Squash.DoSquash(SquashJumpAmount);
+        }
+
         if (IsJumping && RB.linearVelocityY < 0)
         {
             IsJumping = false;
-            SetGravityScale(Data.gravityScale);
-
-            //isJumpFalling = true;
-        }
-
-        {
-            SetGravityScale(Data.gravityScale);
         }
 
         //ANIMATOR
@@ -309,18 +305,9 @@ public class PlayerMovement : MonoBehaviour
         if (!CanJumpCut())
             return;
 
-        if (!IsDashing)
-            RB.linearVelocityY /= Data.JumpCutGravity;
+        RB.linearVelocityY /= Data.JumpCutGravity;
 
-
-        //float jumpCutGravity;
-
-        //jumpCutGravity = !IsDashing ? RB.linearVelocityY /= Data.JumpCutGravity : RB.linearVelocityY /= Data.DashCutGravity;
-
-        //RB.linearVelocityY = jumpCutGravity;
-
-
-        print("CanJumpCut");
+        //print("CanJumpCut");
     }
 
 
@@ -398,7 +385,8 @@ public class PlayerMovement : MonoBehaviour
 
     private bool CanDash()
     {
-        return !IsDashing && _isOnGround && !IsJumping;
+        // Can only dash if not dashing and is on ground
+        return !IsDashing && _isOnGround;
 
     }
 
@@ -435,7 +423,7 @@ public class PlayerMovement : MonoBehaviour
         {
             accelRate *= Data.jumpHangAccelerationMult;
             RB.AddForceY(previousVelocityY * Data.jumpHangFloatMult, ForceMode2D.Force);
-            print("Treshold reached");
+            //print("Treshold reached");
             //targetSpeed *= Data.jumpHangTargetSpeedMult;
         }
 
@@ -476,7 +464,7 @@ public class PlayerMovement : MonoBehaviour
         transform.localScale = scale;
 
         IsFacingRight = !IsFacingRight;
-        print("Is Facing right? " + IsFacingRight);
+        //print("Is Facing right? " + IsFacingRight);
     }
 
     //GENERAL METHODS
@@ -484,6 +472,12 @@ public class PlayerMovement : MonoBehaviour
     {
         RB.gravityScale = scale;
     }
+
+    public void Respawn()
+    {
+        transform.position = RespawnPoint;
+    }
+
     void OnDrawGizmos()
     {
         Gizmos.DrawWireCube(_groundCheckPoint.position, _groundCheckSize);
@@ -500,7 +494,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool CanJumpCut()
     {
-        return IsJumping && RB.linearVelocityY > 0;
+        return IsJumping && RB.linearVelocityY > 0 && !IsDashing;
 
     }
 
@@ -510,37 +504,10 @@ public class PlayerMovement : MonoBehaviour
         return isFalling;
     }
 
-    // private bool IsCrouching()
-    // {
-    //     bool isCrouching = _moveInput.y < 0;
-    //     bool canStand = true;
-    //     if (Physics2D.OverlapBox(_crouchCheckPoint.position, _crouchCheckSize, 0, _groundLayer) && isCrouching)
-    //     {
-    //         canStand = false;
-
-    //     }
-    //     //print(_moveInput.y);
-    //     if (isCrouching)
-    //         return isCrouching;
-
-
-    //     else
-    //         return isCrouching && canStand;
-    // }
-
-
     private bool IsRunning()
     {
         return Mathf.Abs(RB.linearVelocityX) >= 0.1f;
     }
-
-    public void Respawn()
-    {
-        transform.position = RespawnPoint;
-    }
-
-
-
 
 
 
