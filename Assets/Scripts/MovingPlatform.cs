@@ -33,6 +33,11 @@ public class MovingPlatform : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+    }
+    void FixedUpdate()
+
+    {
         if (Active)
         {
             transform.position = Vector2.MoveTowards(transform.position, _nextPosition, MoveSpeed * Time.deltaTime);

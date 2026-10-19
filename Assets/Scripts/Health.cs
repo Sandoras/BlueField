@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Health : MonoBehaviour
@@ -39,17 +40,21 @@ public class Health : MonoBehaviour
 
     void Update()
     {
+        //ANIMATOR
+        _playerMovement.PlayerAnimator.SetBool("b_IsInvinsible", IsInvinsible());
 
         if (IsInvinsible())
+        {
             _invincibleTimer -= Time.deltaTime;
 
-
+        }
         //Respawn
         if (_healthPoints <= 0)
         {
             Die();
 
         }
+
     }
 
 
@@ -84,7 +89,6 @@ public class Health : MonoBehaviour
 
     public bool IsInvinsible()
     {
-
         return _invincibleTimer >= 0;
     }
 }

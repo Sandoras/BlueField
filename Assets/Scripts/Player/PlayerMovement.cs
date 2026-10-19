@@ -197,7 +197,7 @@ public class PlayerMovement : MonoBehaviour
             LastOnGroundTime = Data.coyoteTime;
             _isOnGround = true;
             // print(LastOnGroundTime);
-            //print("Is on ground?:" + _isOnGround);
+            print("Is on ground?:" + _isOnGround);
         }
         else
         {
