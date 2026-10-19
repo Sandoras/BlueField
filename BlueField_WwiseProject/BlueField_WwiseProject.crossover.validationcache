@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ValidationCache Version="1" SchemaVersion="133">
+	<ValidationCacheItem File="Y:\Library\Application Support\Audiokinetic\MediaPool\2\MediaPoolQuery.wsettings" DateLow="1792402863" DateHigh="0"/>
 	<ValidationCacheItem File="Y:\Library\CloudStorage\Dropbox\Spillutvikling\Semester 1\2D Platformer\BlueField\BlueField_WwiseProject\Attenuations\Default Work Unit.wwu" DateLow="1792402863" DateHigh="0"/>
 	<ValidationCacheItem File="Y:\Library\CloudStorage\Dropbox\Spillutvikling\Semester 1\2D Platformer\BlueField\BlueField_WwiseProject\Attenuations\Factory Attenuations.wwu" DateLow="1792402615" DateHigh="0"/>
-	<ValidationCacheItem File="Y:\Library\CloudStorage\Dropbox\Spillutvikling\Semester 1\2D Platformer\BlueField\BlueField_WwiseProject\BlueField_WwiseProject.wproj" DateLow="1792402863" DateHigh="0"/>
+	<ValidationCacheItem File="Y:\Library\CloudStorage\Dropbox\Spillutvikling\Semester 1\2D Platformer\BlueField\BlueField_WwiseProject\BlueField_WwiseProject.wproj" DateLow="1792402890" DateHigh="0"/>
 	<ValidationCacheItem File="Y:\Library\CloudStorage\Dropbox\Spillutvikling\Semester 1\2D Platformer\BlueField\BlueField_WwiseProject\Busses\Default Work Unit.wwu" DateLow="1792402863" DateHigh="0"/>
 	<ValidationCacheItem File="Y:\Library\CloudStorage\Dropbox\Spillutvikling\Semester 1\2D Platformer\BlueField\BlueField_WwiseProject\Containers\Default Work Unit.wwu" DateLow="1792402863" DateHigh="0"/>
 	<ValidationCacheItem File="Y:\Library\CloudStorage\Dropbox\Spillutvikling\Semester 1\2D Platformer\BlueField\BlueField_WwiseProject\Control Surface Sessions\Default Work Unit.wwu" DateLow="1792402863" DateHigh="0"/>
