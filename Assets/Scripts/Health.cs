@@ -53,7 +53,7 @@ public class Health : MonoBehaviour
     }
 
 
-    public void TakeDamage(int Damage)
+    public void TakeDamage(int Damage, float KnockBackForce)
     {
 
 
@@ -67,7 +67,7 @@ public class Health : MonoBehaviour
 
         Vector2 knockbackDirection = new Vector2(facingDirection, 1);
 
-        _playerMovement.RB.AddForce(knockbackDirection * _knockBackForce, ForceMode2D.Impulse);
+        _playerMovement.RB.AddForce(knockbackDirection * KnockBackForce, ForceMode2D.Impulse);
     }
 
     public void Die()

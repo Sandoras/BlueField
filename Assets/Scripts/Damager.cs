@@ -4,6 +4,7 @@ using UnityEngine;
 public class Damager : MonoBehaviour
 {
     [SerializeField] public int Damage;
+    [SerializeField] public float KnockBackForce;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -23,7 +24,7 @@ public class Damager : MonoBehaviour
 
         if (health != null)
         {
-            health.TakeDamage(Damage);
+            health.TakeDamage(Damage, KnockBackForce);
 
         }
     }

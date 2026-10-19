@@ -96,11 +96,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if (transform.position.y <= -56)
-        {
-            Respawn();
+        // if (transform.position.y <= -56)
+        // {
+        //     Respawn();
 
-        }
+        // }
 
         #region TIMERS
         LastOnGroundTime -= Time.deltaTime;
