@@ -1,0 +1,47 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Mac",
+  "BasePlatform": "Mac",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "172",
+  "SoundBanks": [
+   {
+    "Id": "3161908922",
+    "Type": "User",
+    "GUID": "{8407FEEE-BA17-4931-BA17-C944B9EFE2A7}",
+    "Language": "SFX",
+    "Hash": "{811E7D95-1D85-BA9A-F0D9-D554D5F42053}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\Main",
+    "ShortName": "Main",
+    "Path": "Main.bnk",
+    "Media": [
+     {
+      "Id": "667849352",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Movements & Interactions\\Wario_Jump.wav",
+      "CachePath": "CE/{CE28414F-69AD-A5F2-0D63-13E1A9F845DD}.wem"
+     }
+    ],
+    "Events": [
+     {
+      "Id": "2360340135",
+      "Name": "Play_Wario_Jump",
+      "ObjectPath": "\\Events\\Default Work Unit\\Play_Wario_Jump",
+      "GUID": "{E243CFD6-5F4C-4E06-88DD-7AA3471A3594}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.6858503",
+      "DurationMax": "0.6858503",
+      "MediaRefs": [
+       {
+        "Id": "667849352"
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "FileHash": "{23CFA5B7-2E4B-9717-EE8E-E39A708DA98B}"
+ }
+}

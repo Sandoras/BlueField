@@ -1,0 +1,6 @@
+Event	ID	Name			Wwise Object Path	Notes
+	2360340135	Play_Wario_Jump			\Default Work Unit\Play_Wario_Jump	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	667849352	Wario_Jump	.cache\CE\{CE28414F-69AD-A5F2-0D63-13E1A9F845DD}.wem		\Containers\Default Work Unit\Movements & Interactions\Wario_Jump		121080
+
