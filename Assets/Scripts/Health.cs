@@ -4,7 +4,7 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     [Header("Health")]
-    [SerializeField] private int _healthPoints;
+    public int _healthPoints { get; private set; }
     [SerializeField] private int _startingHealthPoints = 5;
 
     [Header("Invincibility")]

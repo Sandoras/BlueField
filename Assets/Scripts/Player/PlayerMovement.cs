@@ -8,6 +8,9 @@ public class PlayerMovement : MonoBehaviour
 
     public PlayerData Data;
 
+    //AUDIO
+    public AK.Wwise.Event Play_Wario_Jump;
+
     public Vector3 RespawnPoint;
     public Vector3 StartingRespawnPoint;
 
@@ -228,7 +231,7 @@ public class PlayerMovement : MonoBehaviour
             else
             {
                 EndDash();
-                Squash.DoSquash(SquashJumpAmount * 2);
+                Squash.DoSquash(SquashJumpAmount * 0.8f);
             }
 
         }
@@ -331,6 +334,9 @@ public class PlayerMovement : MonoBehaviour
         //ANIMATOR
         PlayerAnimator.SetTrigger("t_Jump");
         Squash.DoSquash(SquashJumpAmount);
+
+        //AUDIO
+        Play_Wario_Jump.Post(gameObject);
 
     }
 
